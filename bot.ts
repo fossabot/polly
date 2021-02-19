@@ -52,15 +52,14 @@ client.on("message", async (message) => {
 
     //Send help message if no question is given
     if (instruction.indexOf('"') < 0) {
-      const help = new Discord.MessageEmbed().setColor(embedColor)
-        .setDescription(`
+      const help = createEmbed(`
         **Poll usage:**
-        
+      
         **Multi answers(1-${optionEmojis.length})**
         ${command} "What's Your Favorite Color?" "Blue" "Red" "Yellow"
         **Yes / No**
         ${command} "Do you like Poll?"
-        `);
+      `);
 
       message.channel.send(help);
       return;
@@ -100,16 +99,14 @@ client.on("message", async (message) => {
     //If options are given display them in embed
     else if (options.length <= optionEmojis.length) {
       let count = -1;
-      const optionDisplay = new Discord.MessageEmbed()
-        .setColor(embedColor)
-        .setDescription(
-          options
-            .map((option) => {
-              count++;
-              return `${optionEmojis[count]} ${option}`;
-            })
-            .join("\n")
-        );
+      const optionDisplay = createEmbed(
+        options
+          .map((option) => {
+            count++;
+            return `${optionEmojis[count]} ${option}`;
+          })
+          .join("\n")
+      );
       msg = await message.channel.send(optionDisplay);
 
       for (let i = 0; i < options.length; i++) {
@@ -126,4 +123,10 @@ function tokenize(text: string) {
   let newText = text.replace(`"${token}"`, "");
 
   return { token, newText };
+}
+
+function createEmbed(description: string) {
+  return new Discord.MessageEmbed()
+    .setColor(embedColor)
+    .setDescription(description);
 }
