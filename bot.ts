@@ -1,5 +1,5 @@
 import * as Discord from "discord.js";
-import Dotenv from "dotenv";
+import * as Dotenv from "dotenv";
 
 //SETTINGS
 const embedColor: Discord.ColorResolvable = 0x3b88c3;
