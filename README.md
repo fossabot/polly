@@ -18,7 +18,7 @@ git clone https://github.com/GHOSCHT/Discord-PollBot.git
 yarn
 ```
 
-3. Create a .env file with the bot token in the root dictionary
+3. Create a .env file containing the bot token in the root dictionary
 
 ```
 TOKEN=YOURTOKENHERE
