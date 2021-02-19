@@ -1,31 +1,65 @@
 import * as Discord from "discord.js";
 import Dotenv from "dotenv";
 
+//SETTINGS
+const embedColor: Discord.ColorResolvable = 0x3b88c3;
+const command = "!poll";
+
 Dotenv.config();
 
 const client = new Discord.Client();
 client.login(process.env.TOKEN);
 
+const optionEmojis = [
+  "🇦",
+  "🇧",
+  "🇨",
+  "🇩",
+  "🇪",
+  "🇫",
+  "🇬",
+  "🇭",
+  "🇮",
+  "🇯",
+  "🇰",
+  "🇱",
+  "🇲",
+  "🇳",
+  "🇴",
+  "🇵",
+  "🇶",
+  "🇷",
+  "🇸",
+  "🇹",
+  "🇺",
+  "🇻",
+  "🇼",
+  "🇽",
+  "🇾",
+  "🇿",
+];
+
 client.on("ready", () => {
   if (client.user !== null) {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity("!poll");
+    client.user.setActivity(command);
   }
 });
 
 client.on("message", async (message) => {
-  if (message.content.startsWith("!poll")) {
-    let command = message.content.replace("!poll", "");
+  if (message.content.startsWith(command)) {
+    let instruction = message.content.replace(command, "");
 
-    if (command.indexOf('"') < 0) {
-      const help = new Discord.MessageEmbed().setColor(0xff0000)
+    //Send help message if no question is given
+    if (instruction.indexOf('"') < 0) {
+      const help = new Discord.MessageEmbed().setColor(embedColor)
         .setDescription(`
         **Poll usage:**
         
-        **Multi answers(1-20)**
-        !poll "What's Your Favorite Color?" "Blue" "Red" "Yellow"
+        **Multi answers(1-${optionEmojis.length})**
+        ${command} "What's Your Favorite Color?" "Blue" "Red" "Yellow"
         **Yes / No**
-        !poll "Do you like Simple Poll?"
+        ${command} "Do you like Poll?"
         `);
 
       message.channel.send(help);
@@ -33,34 +67,54 @@ client.on("message", async (message) => {
     }
 
     let options: string[] = [];
-    let tokenizedQuestion = tokenize(command);
-    command = tokenizedQuestion.newText;
+
+    //Tokenize question
+    let tokenizedQuestion = tokenize(instruction);
+    instruction = tokenizedQuestion.newText;
     let question = tokenizedQuestion.token;
 
-    while (command.indexOf('"') >= 0) {
-      let tokenizedOption = tokenize(command);
+    //Tokenize all options
+    while (instruction.indexOf('"') >= 0) {
+      let tokenizedOption = tokenize(instruction);
       options.push(tokenizedOption.token);
-      command = tokenizedOption.newText;
+      instruction = tokenizedOption.newText;
+    }
+
+    //Send pleasant surprise if options are more than possible
+    if (options.length > optionEmojis.length) {
+      message.channel.send(
+        "https://media.giphy.com/media/Wrh8aL75aj4uZwuqta/giphy.gif"
+      );
+      return;
     }
 
     const titleMessage = message.channel.send(`**📊 ${question}**`);
     let msg: Discord.Message;
 
+    //Send question as message only when no option is given
     if (options.length === 0) {
       msg = await titleMessage;
       msg.react("👍");
       msg.react("👎");
-    } else {
+    }
+    //If options are given display them in embed
+    else if (options.length <= optionEmojis.length) {
+      let count = -1;
       const optionDisplay = new Discord.MessageEmbed()
-        .setColor(0xff0000)
+        .setColor(embedColor)
         .setDescription(
           options
             .map((option) => {
-              return `📊 ${option}`;
+              count++;
+              return `${optionEmojis[count]} ${option}`;
             })
             .join("\n")
         );
       msg = await message.channel.send(optionDisplay);
+
+      for (let i = 0; i < options.length; i++) {
+        msg.react(optionEmojis[i]);
+      }
     }
   }
 });
