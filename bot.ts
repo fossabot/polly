@@ -98,15 +98,12 @@ client.on("message", async (message) => {
     }
     //If options are given display them in embed
     else if (options.length <= optionEmojis.length) {
-      let count = -1;
-      const optionDisplay = createEmbed(
-        options
-          .map((option) => {
-            count++;
-            return `${optionEmojis[count]} ${option}`;
-          })
-          .join("\n")
-      );
+      let embedOptions: string[] = [];
+      for (let i = 0; i < options.length; i++) {
+        embedOptions.push(`${optionEmojis[i]} ${options[i]}`);
+      }
+
+      const optionDisplay = createEmbed(embedOptions.join("\n"));
       msg = await message.channel.send(optionDisplay);
 
       for (let i = 0; i < options.length; i++) {
