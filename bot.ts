@@ -3,7 +3,7 @@ import * as Dotenv from "dotenv";
 
 //SETTINGS
 const embedColor: Discord.ColorResolvable = 0x3b88c3;
-const command = "?poll";
+const command = "!poll";
 
 Dotenv.config();
 
