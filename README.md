@@ -6,7 +6,7 @@ It's just a ripoff of [Simple Poll](https://top.gg/bot/simplepoll) to get the fe
 
 ### Installation
 
-Build Docker container and run with .env file included.
+Build Docker container locally or pull it from [Docker Hub](https://hub.docker.com/r/ghoscht/discord-pollbot) and run it with .env file included.
 
 ```
 TOKEN=YOURTOKENHERE
