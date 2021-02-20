@@ -6,7 +6,11 @@ It's just a ripoff of [Simple Poll](https://top.gg/bot/simplepoll) to get the fe
 
 ### Installation
 
-Build Docker container
+Build Docker container and run with .env file included.
+
+```
+TOKEN=YOURTOKENHERE
+```
 
 ### Manual Installation
 
