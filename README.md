@@ -6,6 +6,10 @@ It's just a ripoff of [Simple Poll](https://top.gg/bot/simplepoll) to get the fe
 
 ### Installation
 
+Build Docker container
+
+### Manual Installation
+
 1.  Clone the repo
 
 ```sh
