@@ -9,8 +9,6 @@ COPY yarn.lock ./
 COPY tsconfig.json ./
 COPY bot.ts ./
 
-RUN npm update && \
-    npm i -g ts-node
 RUN yarn
 
 CMD ["yarn", "start"]
