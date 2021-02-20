@@ -24,16 +24,10 @@ yarn
 TOKEN=YOURTOKENHERE
 ```
 
-3. Build typescript via tsc
+4. Start the bot
 
 ```sh
-tsc bot.ts
-```
-
-4. Run executable javascript with node.js
-
-```sh
-node bot.js
+yarn start
 ```
 
 ## Built With
