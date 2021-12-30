@@ -1,5 +1,6 @@
 import * as Discord from "discord.js";
 import * as Dotenv from "dotenv";
+import { optionEmojis } from "./optionEmojis";
 
 //SETTINGS
 const embedColor: Discord.ColorResolvable = 0x3b88c3;
@@ -9,35 +10,6 @@ Dotenv.config();
 
 const client = new Discord.Client();
 client.login(process.env.TOKEN);
-
-const optionEmojis = [
-  "🇦",
-  "🇧",
-  "🇨",
-  "🇩",
-  "🇪",
-  "🇫",
-  "🇬",
-  "🇭",
-  "🇮",
-  "🇯",
-  "🇰",
-  "🇱",
-  "🇲",
-  "🇳",
-  "🇴",
-  "🇵",
-  "🇶",
-  "🇷",
-  "🇸",
-  "🇹",
-  "🇺",
-  "🇻",
-  "🇼",
-  "🇽",
-  "🇾",
-  "🇿",
-];
 
 client.on("ready", () => {
   if (client.user !== null) {
