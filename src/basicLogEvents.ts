@@ -9,10 +9,6 @@ export const basicLogEvents = (
     logger.error(e);
   });
 
-  client.on("rateLimit", (e) => {
-    logger.warn(e);
-  });
-
   client.on("disconnect", () => {
     logger.info("Disconnected from server!");
   });
