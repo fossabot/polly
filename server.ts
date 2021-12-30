@@ -1,6 +1,7 @@
 import * as Discord from "discord.js";
 import * as Dotenv from "dotenv";
 import { optionEmojis } from "./optionEmojis";
+import { logger } from "./logger";
 
 //SETTINGS
 const embedColor: Discord.ColorResolvable = 0x3b88c3;
@@ -13,12 +14,33 @@ client.login(process.env.TOKEN);
 
 client.on("ready", () => {
   if (client.user !== null) {
-    console.log(`Logged in as ${client.user.tag}!`);
+    logger.info(`Logged in as ${client.user.tag}!`);
     client.user.setActivity(command);
   }
 });
 
+client.on("error", (e) => {
+  logger.error(e);
+});
+
+client.on("rateLimit", (e) => {
+  logger.warn(e);
+});
+
+client.on("disconnect", () => {
+  logger.info("Disconnected from server!");
+});
+
+client.on("warn", (e) => {
+  logger.warn(e);
+});
+
+client.on("guildBanAdd", (guild, user) => {
+  logger.warn(`Banned by ${user} on server ${guild}`);
+});
+
 client.on("message", async (message) => {
+  logger.info(`Message received: ${message}`);
   if (message.content.startsWith(command)) {
     let instruction = message.content.replace(command, "");
 
