@@ -1,0 +1,8 @@
+version: "2"
+services:
+  polly:
+    container_name: polly
+    image: ghcr.io/ghoscht/polly:latest
+
+    environment:
+      - TOKEN=<YOUR TOKEN HERE>
