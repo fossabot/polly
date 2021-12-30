@@ -7,7 +7,7 @@ WORKDIR /usr/app
 COPY package*.json ./
 COPY yarn.lock ./
 COPY tsconfig.json ./
-COPY server.ts ./
+COPY src/* ./
 
 RUN yarn
 
