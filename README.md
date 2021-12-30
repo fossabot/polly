@@ -17,7 +17,7 @@ TOKEN=YOURTOKENHERE
 1. Clone the repo
 
 ```sh
-git clone https://github.com/GHOSCHT/Discord-PollBot.git
+git clone https://github.com/GHOSCHT/polly.git
 ```
 
 2. Install NPM packages
