@@ -2,10 +2,7 @@ import * as Discord from "discord.js";
 import * as Dotenv from "dotenv";
 import { optionEmojis } from "./optionEmojis";
 import { logger } from "./logger";
-
-//SETTINGS
-const embedColor: Discord.ColorResolvable = 0x3b88c3;
-const command = "!poll";
+import { command, embedColor } from "./constants";
 
 Dotenv.config();
 
