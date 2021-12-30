@@ -1,4 +1,4 @@
-# Discord-PollBot
+# Polly
 
 It's just a ripoff of [Simple Poll](https://top.gg/bot/simplepoll) to get the feeling for the Discord Bot API.
 
