@@ -3,10 +3,12 @@ import * as Dotenv from "dotenv";
 import { optionEmojis } from "./optionEmojis";
 import { logger } from "./logger";
 import { command, embedColor } from "./constants";
+import { basicLogEvents } from "./basicLogEvents";
 
 Dotenv.config();
 
 const client = new Discord.Client();
+basicLogEvents(client, logger);
 client.login(process.env.TOKEN);
 
 client.on("ready", () => {
@@ -14,26 +16,6 @@ client.on("ready", () => {
     logger.info(`Logged in as ${client.user.tag}!`);
     client.user.setActivity(command);
   }
-});
-
-client.on("error", (e) => {
-  logger.error(e);
-});
-
-client.on("rateLimit", (e) => {
-  logger.warn(e);
-});
-
-client.on("disconnect", () => {
-  logger.info("Disconnected from server!");
-});
-
-client.on("warn", (e) => {
-  logger.warn(e);
-});
-
-client.on("guildBanAdd", (guild, user) => {
-  logger.warn(`Banned by ${user} on server ${guild}`);
 });
 
 client.on("message", async (message) => {
