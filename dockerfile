@@ -4,10 +4,7 @@ RUN apk update
 
 WORKDIR /usr/app
 
-COPY package*.json ./
-COPY yarn.lock ./
-COPY tsconfig.json ./
-COPY src/* ./
+COPY . ./
 
 RUN yarn
 
