@@ -8,19 +8,19 @@ It's just a ripoff of [Simple Poll](https://top.gg/bot/simplepoll) to get the fe
 
 Build Docker container locally or pull it from [Docker Hub](https://hub.docker.com/r/ghoscht/discord-pollbot) and run it with following environment variable included:
 
-```
+```text
 TOKEN=YOURTOKENHERE
 ```
 
 ### Manual Installation
 
-1.  Clone the repo
+1. Clone the repo
 
 ```sh
 git clone https://github.com/GHOSCHT/Discord-PollBot.git
 ```
 
-2.  Install NPM packages
+2. Install NPM packages
 
 ```sh
 yarn
@@ -40,7 +40,7 @@ yarn start
 
 ## Built With
 
--   [Discord.js](https://discord.js.org/)
+- [Discord.js](https://discord.js.org/)
 
 ## License
 
