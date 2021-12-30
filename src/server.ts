@@ -19,9 +19,9 @@ client.on("ready", () => {
 });
 
 client.on("message", async (message) => {
-  logger.info(`Message received: ${message}`);
   if (message.content.startsWith(command)) {
     let instruction = message.content.replace(command, "");
+    logger.info(`Command received: ${message}`);
 
     //Send help message if no question is given
     if (instruction.indexOf('"') < 0) {
