@@ -6,3 +6,8 @@ services:
 
     environment:
       - TOKEN=<YOUR TOKEN HERE>
+    volumes:
+      - "logs:/usr/app/logs"
+
+volumes:
+  logs:
