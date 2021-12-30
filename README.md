@@ -8,13 +8,15 @@ It's just a ripoff of [Simple Poll](https://top.gg/bot/simplepoll) to get the fe
 
 ### Installation
 
-Build Docker container locally or pull it from [Docker Hub](https://hub.docker.com/r/ghoscht/polly) and run it with following environment variable included:
+1. Place your bot token  in ``docker-compose.yml``
 
-```text
-TOKEN=YOURTOKENHERE
+2. Start the bot with docker-compose
+
+```sh
+docker-compose up -d
 ```
 
-### Manual Installation
+### Manual Build
 
 1. Clone the repo
 
@@ -31,7 +33,7 @@ yarn
 3. Create a .env file containing the bot token in the root dictionary
 
 ```
-TOKEN=YOURTOKENHERE
+TOKEN=<YOURTOKENHERE>
 ```
 
 4. Start the bot
