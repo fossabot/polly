@@ -1,6 +1,7 @@
 # Polly
 
 [![Add to server](https://img.shields.io/badge/Polly-Add%20to%20server-brightgreen?logo=discord&style=for-the-badge)](https://discord.com/oauth2/authorize?client_id=812350686041735168&permissions=3072&scope=bot%20applications.commands)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FGHOSCHT%2Fpolly.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FGHOSCHT%2Fpolly?ref=badge_shield)
 
 It's just a ripoff of [Simple Poll](https://top.gg/bot/simplepoll) to get the feeling for the Discord Bot API.
 
@@ -49,3 +50,6 @@ yarn start
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FGHOSCHT%2Fpolly.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FGHOSCHT%2Fpolly?ref=badge_large)
